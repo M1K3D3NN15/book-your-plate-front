@@ -42,3 +42,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 ## Framework
 - React JS 16.13.1
 - React Material 4.11.0
+- React Material UI - icons 4.9.1
