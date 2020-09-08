@@ -9,9 +9,10 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 
+import Time from "../../lib/time";
+
 const useStyles = makeStyles({
   root: {
-    maxWidth: 345,
   },
   media: {
     height: 140,
@@ -20,18 +21,19 @@ const useStyles = makeStyles({
 
 function DescriptionCard (props) {
   const classes = useStyles();
-  console.log("Props", props)
   return (
-    <div>
+    <div style={{paddingBottom: 10}}>
       <Card className={classes.root}>
         <CardActionArea>
           <CardMedia
             className={classes.media}
             image={props.di.image}
-            title="Contemplative Reptile"
             onClick={() => props.getId(props.di.id)}
           />
           <CardContent>
+            <Typography className={classes.title} color="textSecondary" gutterBottom>
+              {Time.getTime(props.di.date)}
+            </Typography>
             <Typography gutterBottom variant="h5" component="h2">
               {props.di.title}
             </Typography>

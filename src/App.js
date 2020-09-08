@@ -125,19 +125,41 @@ const ciao = [
     id: 1,
     title: 'Ciao',
     description: 'Description Ciao',
-    image: 'https://unsplash.com/photos/5E5N49RWtbA'
+    image: 'https://unsplash.com/photos/5E5N49RWtbA',
+    date: 1595073600,
+    cost: 20
   },
   {
     id: 2,
     title: 'Miao',
     description: 'Description Miao',
-    image: 'https://unsplash.com/photos/5E5N49RWtbA'
+    image: 'https://unsplash.com/photos/5E5N49RWtbA',
+    date: 1595160000,
+    cost: 15
   },
   {
     id: 3,
     title: 'Bau',
     description: 'Description Bau',
-    image: 'https://unsplash.com/photos/5E5N49RWtbA'
+    image: 'https://unsplash.com/photos/5E5N49RWtbA',
+    date: 1595246400,
+    cost: 10
+  },
+  {
+    id: 4,
+    title: 'CiaoMiao',
+    description: 'Description CiaoMiao',
+    image: 'https://unsplash.com/photos/5E5N49RWtbA',
+    date: 1595246400,
+    cost: 5
+  },
+  {
+    id: 5,
+    title: 'CiaoBau',
+    description: 'Description CiaoBau',
+    image: 'https://unsplash.com/photos/5E5N49RWtbA',
+    date: 1595246400,
+    cost: 7
   }
 ]
 
@@ -166,9 +188,9 @@ function App() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
+          <Grid container spacing={3} direction={"row"} justify={"center"} alignContent={"center"} alignItems={"center"}>
             {/* List of dishes to Order */}
-            <Grid item xs={12}>
+            <Grid item xs={6}>
               {descriptionsCards}
             </Grid>
           </Grid>
