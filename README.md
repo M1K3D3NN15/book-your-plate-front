@@ -45,3 +45,4 @@ This section has moved here: https://facebook.github.io/create-react-app/docs/tr
 - React Material UI - icons 4.9.1
 - React Js Router 5.2.0
 - Stripe 8.92.0
+- Moment 2.27.0
