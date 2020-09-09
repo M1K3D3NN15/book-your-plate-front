@@ -1,0 +1,1 @@
+export const STRIPE_API_KEY = 'sk_test_51HOeDTKlawRfwL6oIjXuhQ5ZnBfgzKcxAAJDKJgEGcH9N3T9GhyEHBQR3fK4CF8azikBUspyaQ2W3SeHPjyfCLuX00Y1P7fteO'

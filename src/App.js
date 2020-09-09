@@ -38,7 +38,7 @@ import './App.css';
 import Navbar from "./components/layout/navbar";
 import HomeClient from "./components/client/home";
 import DescriptionCard from "./components/client/descriptionCard";
-
+import Payments from "./lib/stripe";
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -172,8 +172,9 @@ function App() {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleClose = async () => {
     setOpen(false);
+    await Payments.createPaymentIntent();
   };
 
   const receiveChildValue = (value) => {
