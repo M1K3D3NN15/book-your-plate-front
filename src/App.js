@@ -208,6 +208,14 @@ function App() {
                 margin="dense"
                 id="name"
                 label="Type your name"
+                type="text"
+                fullWidth
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="email"
+                label="Type your email"
                 type="email"
                 fullWidth
               />

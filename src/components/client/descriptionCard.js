@@ -41,7 +41,7 @@ function DescriptionCard (props) {
   }else{
     footerCard = <CardActions>
       <Typography variant="body2" color="textSecondary" component="p">
-        It's too late!
+        It's too late! &#128533;
       </Typography>
       <Button size="small" color="primary" disabled>
         Buy
@@ -56,7 +56,6 @@ function DescriptionCard (props) {
           <CardMedia
             className={classes.media}
             image={props.di.image}
-            onClick={() => props.getId(props.di.id)}
           />
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
