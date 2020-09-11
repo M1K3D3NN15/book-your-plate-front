@@ -21,6 +21,34 @@ const useStyles = makeStyles({
 
 function DescriptionCard (props) {
   const classes = useStyles();
+  const currentDay = Time.getUnixTimestamp()
+
+  console.log('Current Date', currentDay, props.di.date);
+
+  const flagDate = props.di.date > currentDay
+
+  console.log("Flag date", flagDate)
+
+  let footerCard = null
+
+  if (flagDate) {
+    footerCard =
+      <CardActions>
+        <Button size="small" color="primary" onClick={() => props.getId(props.di.id)}>
+          Buy
+        </Button>
+      </CardActions>
+  }else{
+    footerCard = <CardActions>
+      <Typography variant="body2" color="textSecondary" component="p">
+        It's too late!
+      </Typography>
+      <Button size="small" color="primary" disabled>
+        Buy
+      </Button>
+    </CardActions>
+  }
+
   return (
     <div style={{paddingBottom: 10}}>
       <Card className={classes.root}>
@@ -32,7 +60,7 @@ function DescriptionCard (props) {
           />
           <CardContent>
             <Typography className={classes.title} color="textSecondary" gutterBottom>
-              {Time.getTime(props.di.date)}
+              {Time.getTimeByUnixTimestamp(props.di.date)}
             </Typography>
             <Typography gutterBottom variant="h5" component="h2">
               {props.di.title}
@@ -42,11 +70,7 @@ function DescriptionCard (props) {
             </Typography>
           </CardContent>
         </CardActionArea>
-        <CardActions>
-          <Button size="small" color="primary" onClick={() => props.getId(props.di.id)}>
-            Buy
-          </Button>
-        </CardActions>
+          {footerCard}
       </Card>
     </div>
   )

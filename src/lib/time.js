@@ -12,8 +12,12 @@ class Time {
    * @param {Number} unixTimeStamp - unix time stamp to transform
    * @returns {string}
    */
-  static getTime (unixTimeStamp) {
+  static getTimeByUnixTimestamp (unixTimeStamp) {
     return moment(unixTimeStamp * 1000).format('LL')
+  }
+
+  static getUnixTimestamp () {
+    return moment().unix()
   }
 
 }

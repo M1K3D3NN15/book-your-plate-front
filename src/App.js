@@ -120,11 +120,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ciao = [
+const payload = [
   {
     id: 1,
     title: 'Ciao',
     description: 'Description Ciao',
+
     image: 'https://unsplash.com/photos/5E5N49RWtbA',
     date: 1595073600,
     cost: 20
@@ -158,7 +159,7 @@ const ciao = [
     title: 'CiaoBau',
     description: 'Description CiaoBau',
     image: 'https://unsplash.com/photos/5E5N49RWtbA',
-    date: 1595246400,
+    date: 1599912000,
     cost: 7
   }
 ]
@@ -175,13 +176,14 @@ function App() {
   const handleClose = async () => {
     setOpen(false);
     await Payments.createPaymentIntent();
+    console.log("Close Dialog")
   };
 
   const receiveChildValue = (value) => {
     handleClickOpen();
   };
 
-  const descriptionsCards = ciao.map((card , index) => <DescriptionCard key={index} di={card} getId={receiveChildValue}/>)
+  const descriptionsCards = payload.map((card , index) => <DescriptionCard key={index} di={card} getId={receiveChildValue}/>)
 
   return (
     <div className="App">

@@ -1,5 +1,9 @@
-import {STRIPE_API_KEY} from "./const";
-const stripe = require('stripe')(STRIPE_API_KEY);
+import {STRIPE_API_PUBLIC_KEY} from "./const";
+import { loadStripe } from "@stripe/stripe-js";
+import nodeFetch from "./nodeFetch";
+const fetch = require('node-fetch');
+
+
 
 /**
  * Class
@@ -12,17 +16,29 @@ class Payments {
   //const payment;
 
   static async createPaymentIntent () {
+    try {
 
-    const stripe = require('stripe')('sk_test_51HOeDTKlawRfwL6oIjXuhQ5ZnBfgzKcxAAJDKJgEGcH9N3T9GhyEHBQR3fK4CF8azikBUspyaQ2W3SeHPjyfCLuX00Y1P7fteO');
+      const stripePromise = loadStripe(STRIPE_API_PUBLIC_KEY);
 
-    const paymentIntent = await stripe.paymentIntents.create({
-      amount: 1000,
-      currency: 'chf',
-      payment_method_types: ['card'],
-      receipt_email: 'jenny.rosen@example.com',
-    });
-    console.log("Payment", paymentIntent)
+      const stripe = await stripePromise;
+      const response = await nodeFetch.post('/payments/create-session')
 
+      console.log("Ciao")
+
+      const session = await response.json();
+      // When the customer clicks on the button, redirect them to Checkout.
+      const result = await stripe.redirectToCheckout({
+        sessionId: session.id,
+      });
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      }
+
+    } catch (e) {
+      console.log("Error", e)
+    }
   }
 
 }
