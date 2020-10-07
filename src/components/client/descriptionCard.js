@@ -23,8 +23,6 @@ function DescriptionCard (props) {
   const classes = useStyles();
   const currentDay = Time.getUnixTimestamp()
 
-  console.log('Current Date', currentDay, props.di.date);
-
   const flagDate = props.di.date > currentDay
 
   let footerCard = null
