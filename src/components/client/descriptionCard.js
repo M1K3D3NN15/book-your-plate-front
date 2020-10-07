@@ -27,8 +27,6 @@ function DescriptionCard (props) {
 
   const flagDate = props.di.date > currentDay
 
-  console.log("Flag date", flagDate)
-
   let footerCard = null
 
   if (flagDate) {
