@@ -166,7 +166,7 @@ function HomeClient() {
     <React.Fragment>
     <div className="App">
       Navigate to
-      <Button onClick={handleRoute('/about-us')} color="primary">
+      <Button onClick={() => {handleRoute('/about-us')}} color="primary">
         Home
       </Button>
       <main className={classes.content}>
