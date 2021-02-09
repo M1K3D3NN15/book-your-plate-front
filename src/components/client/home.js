@@ -19,7 +19,6 @@ const payload = [
     id: 1,
     title: 'Ciao',
     description: 'Description Ciao',
-
     image: 'https://unsplash.com/photos/5E5N49RWtbA',
     date: 1595073600,
     cost: 20
@@ -137,9 +136,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
 function HomeClient() {
   const classes = useStyles();
+  let history = useHistory();
 
   const [open, setOpen] = React.useState(false);
 
@@ -148,7 +147,6 @@ function HomeClient() {
   };
 
   const handleRoute = (route) => {
-    let history = useHistory();
     history.push(route)
   };
 
